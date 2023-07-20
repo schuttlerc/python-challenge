@@ -16,14 +16,17 @@ with open(csvpath, "r") as csvfile:
         profits.append(row[1])
 
 profits_int = [eval(i) for i in profits]
-    
-total_months = len(rows)
-net_total = sum(profits_int)
 
+#Calculate the total number of months included in the dataset    
+total_months = len(rows)
+#Calculate to net total amount of "Profit/Losses" over the entire period
+net_total = sum(profits_int)
+#Calculate the changes in "Profit/Losses" over the entire period,and then the average of those changes
 change =[profits_int[i +1]-profits_int[i] for i in range(total_months - 1)]
 average_change = sum(change) / len(change)
-
+#Calculate the greatest increase in profits (date and amount) over the entire period
 greatest_increase = max(change)
+#Calculate the greatest decrease in profits (date and amount) over the entire period
 greatest_decrease = min(change)
 
 gi_index = change.index(greatest_increase)

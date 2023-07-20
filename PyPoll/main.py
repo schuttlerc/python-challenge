@@ -17,8 +17,10 @@ with open(csvpath, "r") as csvfile:
         county.append(row[1])
         candidate.append(row[2])
 
+#Calculate the total number of votes cast
 total_votes = len(rows)
 
+#Provide a complete list of candidates who received votes
 set_candidate = set(candidate)
 list_candidate = list(set_candidate)
 list_candidate.sort()
@@ -26,14 +28,17 @@ candidate1 = list_candidate[0]
 candidate2 = list_candidate[1]
 candidate3 = list_candidate[2]
 
+#Calculate the total number of votes each candidate won
 candidate1_count = candidate.count(candidate1)
 candidate2_count = candidate.count(candidate2)
 candidate3_count = candidate.count(candidate3)
 
+#Calculate the the percentage of votes each candidate won
 candidate1_percentage = candidate1_count / total_votes * 100
 candidate2_percentage = candidate2_count / total_votes * 100
 candidate3_percentage = candidate3_count / total_votes * 100
 
+#Determine the winner of the election based on popular vote
 candidates = [candidate1,candidate2,candidate3]
 candidate_counts = [candidate1_count,candidate2_count,candidate3_count]
 most_votes = max(candidate_counts)
